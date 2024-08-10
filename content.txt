@@ -1,0 +1,53 @@
+Q1. Explain how Django’s migration system works and how you would handle changes to the database schema.
+
+
+Migrations & Commands: Django's migration system tracks database schema changes via migration files. Key commands include makemigrations (creates migration files), migrate (applies changes to the database), and showmigrations (displays migration status).
+
+Managing Schema Changes: After modifying models, run makemigrations to generate migration files and migrate to apply them. Always review migration files to ensure they accurately reflect your changes.
+
+
+Planning Changes:
+
+Before altering your models, it's essential to carefully plan how these modifications will impact the existing data and database schema. Consider whether the changes will necessitate data migration, such as converting existing data to a new format, and determine how to manage nullable fields, default values, and other schema-related considerations.
+
+Creating Migrations:
+
+Once the models have been modified, execute the command python manage.py makemigrations to generate the corresponding migration file. It is crucial to thoroughly review the generated migration file to ensure it accurately reflects the intended changes.
+
+Applying Migrations:
+
+Apply the migration to the database by running python manage.py migrate. This command will update the database schema according to the migration file, implementing the necessary changes.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q2. Explain the difference between function-based views (FBV) and class-based views (CBV) in Django.
+
+ Views are crucial components responsible for handling HTTP requests and returning appropriate responses. 
+ Django offers two main approaches to implementing views: Function-Based Views (FBV) and Class-Based Views (CBV).
+
+Approach: FBVs use a functional approach, while CBVs use an object-oriented approach.
+
+Complexity: FBVs are simpler and more suited for basic views, whereas CBVs offer greater flexibility for managing complex views.
+
+Reusability: CBVs facilitate code reuse through inheritance and mixins, whereas FBVs might involve more repetition for similar functionality.
+
+Built-In Support: Django provides a rich set of generic CBVs that can be easily customized, whereas FBVs may require more custom logic for similar tasks.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q3. Explain how you would implement authentication and permission in DRF.
+
+Implementing authentication and permission in Django Rest Framework (DRF) is a crucial step in securing an API.
+Here’s how to approach it:
+
+Authentication: DRF offers several built-in methods such as Session Authentication, Token Authentication, and JWT Authentication to verify user identity. These can be configured globally or overridden for individual views as needed.
+
+Permissions: Permissions determine what actions authenticated users can perform, using classes like AllowAny, IsAuthenticated, and IsAdminUser. These can also be set globally or customized per view.
+
+Custom Permissions: For specific access control, you can create custom permission classes tailored to your application's needs.
+
+Combining Authentication and Permissions: Both are typically used together to ensure robust security, with authentication verifying identity and permissions controlling user actions.
+
+Testing and Debugging: It's important to test the authentication and permission setup in various scenarios, ensuring that the system functions correctly under different conditions.
